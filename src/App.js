@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>It is prophesied that WordHunter will live here...</p>
+        <p>It is prophesied that WordHunter will live here soon...</p>
       </header>
     </div>
   );
