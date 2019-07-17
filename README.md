@@ -6,7 +6,7 @@ The following is the basic architecture of the WordHunter application. (The web 
 
 
 
-![](https://raw.githubusercontent.com/Niweera/wordhunter-api/master/wordhunter.png)
+![](https://raw.githubusercontent.com/Niweera/wordhunter-api/master/word_hunter.png)
 
 ### Example use case
 
