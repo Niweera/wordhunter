@@ -1,0 +1,3 @@
+dispatch:
+  - url: "wordhound.niweera.gq/*"
+    service: test
