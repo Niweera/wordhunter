@@ -2,10 +2,12 @@ import {
   GET_WORDNIK,
   GET_CHUCK,
   ITEM_LOADING,
-  GET_QUOTE
+  GET_QUOTE,
+  GET_WORDS
 } from "../actions/types";
 
 const initialState = {
+  words: null,
   quote: null,
   chuck: null,
   wordnik: null,
@@ -23,6 +25,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         wordnik: action.payload,
+        loading: false
+      };
+    case GET_WORDS:
+      return {
+        ...state,
+        words: action.payload,
         loading: false
       };
     case GET_QUOTE:

@@ -2,17 +2,66 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
-import { getWordnik, getChuck, getQuote } from "../../actions/itemActions";
+import {
+  getWordnik,
+  getChuck,
+  getQuote,
+  getWords
+} from "../../actions/itemActions";
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      word: "",
+      showWords: false,
+      errors: {}
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
   componentDidMount() {
-    this.props.getWordnik();
+    // this.props.getWordnik();
     this.props.getChuck();
     this.props.getQuote();
   }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const { word } = this.state;
+
+    const sendWord = word.toLowerCase();
+    var letterArray = sendWord.replace(/[^A-Za-z]/g, "");
+    if (
+      !letterArray.includes("a") &&
+      !letterArray.includes("e") &&
+      !letterArray.includes("i") &&
+      !letterArray.includes("o") &&
+      !letterArray.includes("u")
+    ) {
+      this.setState({
+        errors: { error: "You can't create words with the given letters!" }
+      });
+      console.log(this.state);
+    } else {
+      this.setState({
+        errors: {}
+      });
+      this.setState({ showWords: true });
+      this.props.getWords(sendWord);
+    }
+  }
+
   render() {
-    const { wordnik, chuck, quote } = this.props.item;
+    const { word, showWords, errors } = this.state;
+    const { wordnik, chuck, quote, words, loading } = this.props.item;
     return (
       <div className="container mt-4 mb-4">
         <div className="jumbotron jumbotron-fluid">
@@ -53,10 +102,10 @@ class Dashboard extends Component {
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <p className="h5 mb-4">
-              Input an array of characters seperated by a comma to find out the
-              words that can be created.
+              Enter characters to find out the words that can be created (No
+              need to seperate characters with a space or a comma).
             </p>
-            <form>
+            <form onSubmit={this.onSubmit}>
               <div className="form-row">
                 <div className="col-md-3" />
                 <div className="col-md-3">
@@ -64,21 +113,40 @@ class Dashboard extends Component {
                     type="text"
                     className="form-control"
                     placeholder="Enter Characters"
-                    disabled
+                    name="word"
+                    value={word}
+                    onChange={this.onChange}
+                    title="Enter lowercase letters no more than seven."
+                    maxLength="7"
+                    required
                   />
                 </div>
                 <div className="col-md-3">
-                  <button
-                    type="submit"
-                    className="btn btn-dark mb-2 btn-block"
-                    disabled
-                  >
+                  <button type="submit" className="btn btn-dark mb-2 btn-block">
                     Search
                   </button>
                 </div>
                 <div className="col-md-3" />
               </div>
-              <p className="h6">Word searching is coming soon!</p>
+              {showWords && !errors.error ? (
+                <div>
+                  <hr className="mt-4" />
+                  {words && !loading ? (
+                    <div>
+                      {words.map(word => (
+                        <div className="container mt-3" key={word.word}>
+                          <h1 className="h4">"{word.word}"</h1>{" "}
+                          <h1 className="h5">-{word.definition}</h1>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <Spinner />
+                  )}
+                </div>
+              ) : (
+                <div className="container">{errors.error}</div>
+              )}
             </form>
           </div>
         </div>
@@ -112,6 +180,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   getWordnik: PropTypes.func.isRequired,
+  getWords: PropTypes.func.isRequired,
   getChuck: PropTypes.func.isRequired,
   getQuote: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
@@ -125,5 +194,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getWordnik, getChuck, getQuote }
+  { getWordnik, getChuck, getQuote, getWords }
 )(Dashboard);

@@ -7,3 +7,4 @@ export const GET_CHUCK = "GET_CHUCK";
 export const GET_QUOTE = "GET_QUOTE";
 
 export const ITEM_LOADING = "ITEM_LOADING";
+export const GET_WORDS = "GET_WORDS";
