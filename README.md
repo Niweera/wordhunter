@@ -1,4 +1,7 @@
 # WordHunter
+
+## WordHunter is now live on https://wordhunter.niweera.gq
+
 > WordHunter lets you to find the words for the letters you have when you are playing Scrabble.
 
 The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-api to get the results according to the letters that the user has given.)
