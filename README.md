@@ -20,6 +20,8 @@ The WordHunter service will provide the following results.
 
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
+![](wh.gif)
+
 ## Meta
 
 Nipuna Weerasekara – [@Niweera](https://twitter.com/Niweera) – w.nipuna@gmail.com
