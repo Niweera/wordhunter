@@ -1,4 +1,7 @@
 # WordHunter
+
+## WordHunter is now live on https://wordhunter.niweera.gq
+
 > WordHunter lets you to find the words for the letters you have when you are playing Scrabble.
 
 The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-api to get the results according to the letters that the user has given.)
@@ -46,3 +49,8 @@ This repo is a part of `WordHunter` project.
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/yourname/yourproject/wiki
+
+## Acknowledgement
+
+Without the gigantic help from this guy [koolify](https://github.com/koolify), the development of WordHunter would be impossible...
+
