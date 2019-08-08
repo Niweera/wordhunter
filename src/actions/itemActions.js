@@ -12,7 +12,7 @@ import axios from "axios";
 export const getWords = word => dispatch => {
   dispatch(setItemLoading());
   axios
-    .get(`http://localhost:5000/${word}`)
+    .get(`https://wh.niweera.gq/${word}`)
     .then(res =>
       dispatch({
         type: GET_WORDS,

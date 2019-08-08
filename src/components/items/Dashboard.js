@@ -23,7 +23,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    // this.props.getWordnik();
+    this.props.getWordnik();
     this.props.getChuck();
     this.props.getQuote();
   }
@@ -49,7 +49,6 @@ class Dashboard extends Component {
       this.setState({
         errors: { error: "You can't create words with the given letters!" }
       });
-      console.log(this.state);
     } else {
       this.setState({
         errors: {}
@@ -64,7 +63,7 @@ class Dashboard extends Component {
     const { wordnik, chuck, quote, words, loading } = this.props.item;
     return (
       <div className="container mt-4 mb-4">
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid  border border-secondary">
           <div className="container">
             <h1 className="h2">
               Welcome to WordHunter!
@@ -99,7 +98,7 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid border border-secondary">
           <div className="container">
             <p className="h5 mb-4">
               Enter characters to find out the words that can be created (No
@@ -133,25 +132,36 @@ class Dashboard extends Component {
                   <hr className="mt-4" />
                   {words && !loading ? (
                     <div>
-                      {words.map(word => (
-                        <div className="container mt-3" key={word.word}>
-                          <h1 className="h4">"{word.word}"</h1>{" "}
-                          <h1 className="h5">-{word.definition}</h1>
+                      {words.length > 0 ? (
+                        <div>
+                          {words.map(word => (
+                            <div
+                              className="container mt-3 border border-dark"
+                              key={word.word}
+                            >
+                              <h1 className="h4">"{word.word}"</h1>
+                              <h1 className="h5">-{word.definition}</h1>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      ) : (
+                        <div className="container text-danger">
+                          You can't create words with the given letters!
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <Spinner />
                   )}
                 </div>
               ) : (
-                <div className="container">{errors.error}</div>
+                <div className="container text-danger">{errors.error}</div>
               )}
             </form>
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid  border border-secondary">
           <div className="container">
             <h1 className="h4">Today's Inspiration</h1>
             <hr />
@@ -166,7 +176,7 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid  border border-secondary">
           <div className="container">
             <h1 className="h4">Chuck Norris Fun Fact!</h1>
             <hr />

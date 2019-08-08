@@ -38,6 +38,14 @@ export default class Footer extends Component {
                   />
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="https://github.com/Niweera/wordhunter"
+                >
+                  <i style={{ fontSize: "25px" }} className="fab fa-github" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
