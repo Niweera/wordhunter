@@ -49,3 +49,8 @@ This repo is a part of `WordHunter` project.
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/yourname/yourproject/wiki
+
+## Acknowledgement
+
+Without the gigantic help from this guy [koolify](https://github.com/koolify), the development of WordHunter would be impossible...
+
