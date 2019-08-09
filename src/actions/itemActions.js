@@ -22,7 +22,7 @@ export const getWords = word => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: { errors: "Internal error occured" }
       })
     );
 };

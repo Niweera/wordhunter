@@ -44,10 +44,11 @@ class Dashboard extends Component {
       !letterArray.includes("e") &&
       !letterArray.includes("i") &&
       !letterArray.includes("o") &&
-      !letterArray.includes("u")
+      !letterArray.includes("u") &&
+      !letterArray.includes("y")
     ) {
       this.setState({
-        errors: { error: "You can't create words with the given letters!" }
+        errors: { error: "You can't create words with the given characters!" }
       });
     } else {
       this.setState({
@@ -110,7 +111,7 @@ class Dashboard extends Component {
                 <div className="col-md-3">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control mb-2"
                     placeholder="Enter Characters"
                     name="word"
                     value={word}
@@ -120,7 +121,7 @@ class Dashboard extends Component {
                     required
                   />
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 mb-2">
                   <button type="submit" className="btn btn-dark mb-2 btn-block">
                     Search
                   </button>
@@ -146,7 +147,7 @@ class Dashboard extends Component {
                         </div>
                       ) : (
                         <div className="container text-danger">
-                          You can't create words with the given letters!
+                          You can't create words with the given characters!
                         </div>
                       )}
                     </div>
@@ -155,7 +156,7 @@ class Dashboard extends Component {
                   )}
                 </div>
               ) : (
-                <div className="container text-danger">{errors.error}</div>
+                <div className="container text-danger mt-4">{errors.error}</div>
               )}
             </form>
           </div>
