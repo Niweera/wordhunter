@@ -116,8 +116,6 @@ class Dashboard extends Component {
                     name="word"
                     value={word}
                     onChange={this.onChange}
-                    title="Enter lowercase letters no more than seven."
-                    maxLength="7"
                     required
                   />
                 </div>

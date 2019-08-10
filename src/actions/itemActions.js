@@ -8,7 +8,7 @@ import {
 } from "./types";
 import axios from "axios";
 
-// Get words from given letters
+// Get words from given letters https://wh.niweera.gq http://localhost:5000
 export const getWords = word => dispatch => {
   dispatch(setItemLoading());
   axios
