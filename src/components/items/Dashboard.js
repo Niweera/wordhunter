@@ -179,7 +179,13 @@ class Dashboard extends Component {
           <div className="container">
             <h1 className="h4">Chuck Norris Fun Fact!</h1>
             <hr />
-            {chuck ? <h1 className="h4">"{chuck.value.joke}"</h1> : <Spinner />}
+            {chuck ? (
+              <h1 className="h4">
+                "{chuck.value.joke.replace(/&quot;/g, '"')}"
+              </h1>
+            ) : (
+              <Spinner />
+            )}
           </div>
         </div>
       </div>
