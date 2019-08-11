@@ -1,3 +1,10 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HitCount](http://hits.dwyl.io/Niweera/wordhunter.svg)](http://hits.dwyl.io/Niweera/wordhunter)
+[![Known Vulnerabilities](https://snyk.io//test/github/Niweera/wordhunter/badge.svg?targetFile=package.json)](https://snyk.io//test/github/Niweera/wordhunter?targetFile=package.json)
+![GitHub issues](https://img.shields.io/github/issues/Niweera/wordhunter)
+![Website](https://img.shields.io/website/https/wordhunter.niweera.gq?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
+
+
 # WordHunter
 
 ## WordHunter is now live on https://wordhunter.niweera.gq
