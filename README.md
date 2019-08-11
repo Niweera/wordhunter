@@ -20,10 +20,11 @@ The following is the basic architecture of the WordHunter application. (The web 
 
 ### Example use case
 
-User wants to find words which can be created from `a, o, n, t`
+User wants to find words which can be created from `a, s, d`
 
 The WordHunter service will provide the following results.
-1. nato - North Atlantic Treaty Organization.
+1. sad - Feeling or showing sorrow; unhappy.
+2. ads - An advertisement.
 
 (The initial version would only give the words which contains all the letters. Later versions would provide all the letter combinations.)
 
