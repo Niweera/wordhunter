@@ -55,7 +55,7 @@ class Dashboard extends Component {
         errors: {}
       });
       this.setState({ showWords: true });
-      this.props.getWords(sendWord);
+      this.props.getWords(letterArray);
     }
   }
 
