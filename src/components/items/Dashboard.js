@@ -14,7 +14,6 @@ class Dashboard extends Component {
     super();
     this.state = {
       word: "",
-      showWords: false,
       errors: {}
     };
 
@@ -26,6 +25,12 @@ class Dashboard extends Component {
     this.props.getWordnik();
     this.props.getChuck();
     this.props.getQuote();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onChange(e) {
@@ -48,20 +53,23 @@ class Dashboard extends Component {
       !letterArray.includes("y")
     ) {
       this.setState({
-        errors: { error: "You can't create words with the given characters!" }
+        errors: {
+          wovelsError:
+            "You can't possibly create words without vowels or at least without a 'y'! :D"
+        }
       });
     } else {
       this.setState({
         errors: {}
       });
-      this.setState({ showWords: true });
       this.props.getWords(letterArray);
     }
   }
 
   render() {
-    const { word, showWords, errors } = this.state;
+    const { word, errors } = this.state;
     const { wordnik, chuck, quote, words, loading } = this.props.item;
+
     return (
       <div className="container mt-4 mb-4">
         <div className="jumbotron jumbotron-fluid  border border-secondary">
@@ -126,10 +134,10 @@ class Dashboard extends Component {
                 </div>
                 <div className="col-md-3" />
               </div>
-              {showWords && !errors.error ? (
+
+              {errors === null || words ? (
                 <div>
-                  <hr className="mt-4" />
-                  {words && !loading ? (
+                  {!loading ? (
                     <div>
                       {words.length > 0 ? (
                         <div>
@@ -144,7 +152,7 @@ class Dashboard extends Component {
                           ))}
                         </div>
                       ) : (
-                        <div className="container text-danger">
+                        <div className="container text-danger mt-4">
                           You can't create words with the given characters!
                         </div>
                       )}
@@ -154,7 +162,23 @@ class Dashboard extends Component {
                   )}
                 </div>
               ) : (
-                <div className="container text-danger mt-4">{errors.error}</div>
+                <div>
+                  {errors.error && (
+                    <div className="container text-danger mt-4">
+                      {errors.error}
+                    </div>
+                  )}
+                  {errors.wordError && (
+                    <div className="container text-danger mt-4">
+                      {errors.wordError}
+                    </div>
+                  )}
+                  {errors.wovelsError && (
+                    <div className="container text-danger mt-4">
+                      {errors.wovelsError}
+                    </div>
+                  )}
+                </div>
               )}
             </form>
           </div>
