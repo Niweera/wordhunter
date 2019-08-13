@@ -1,3 +1,4 @@
 steps:
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "--project=My Project", "--version=$SHORT_SHA"]
+    args:
+      ["app", "deploy", "--project=pro-bruin-207112", "--version=$SHORT_SHA"]
