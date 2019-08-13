@@ -4,21 +4,26 @@ import {
   GET_CHUCK,
   GET_QUOTE,
   ITEM_LOADING,
-  GET_WORDS
+  GET_WORDS,
+  CLEAR_DATA,
+  CLEAR_ERRORS,
+  VOWELS_ERROR
 } from "./types";
 import axios from "axios";
 
 // Get words from given letters https://wh.niweera.gq http://localhost:5000
 export const getWords = word => dispatch => {
   dispatch(setItemLoading());
+
   axios
     .get(`https://wh.niweera.gq/${word}`)
-    .then(res =>
+    .then(res => {
       dispatch({
         type: GET_WORDS,
         payload: res.data
-      })
-    )
+      });
+      dispatch(clearErrors());
+    })
     .catch(err => {
       if (err.response) {
         console.log(err);
@@ -29,7 +34,7 @@ export const getWords = word => dispatch => {
       } else {
         dispatch({
           type: GET_ERRORS,
-          payload: { error: "Internal Server Error." }
+          payload: { error: "Internal Server Error" }
         });
       }
     });
@@ -98,5 +103,26 @@ export const getQuote = () => dispatch => {
 export const setItemLoading = () => {
   return {
     type: ITEM_LOADING
+  };
+};
+
+// Clear errors
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
+  };
+};
+
+// Clear data
+export const clearData = () => {
+  return {
+    type: CLEAR_DATA
+  };
+};
+
+// Set vowelError
+export const setVowelsError = () => {
+  return {
+    type: VOWELS_ERROR
   };
 };

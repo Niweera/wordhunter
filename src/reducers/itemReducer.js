@@ -3,7 +3,8 @@ import {
   GET_CHUCK,
   ITEM_LOADING,
   GET_QUOTE,
-  GET_WORDS
+  GET_WORDS,
+  CLEAR_DATA
 } from "../actions/types";
 
 const initialState = {
@@ -43,6 +44,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         chuck: action.payload,
+        loading: false
+      };
+    case CLEAR_DATA:
+      return {
+        ...state,
+        words: null,
         loading: false
       };
     default:

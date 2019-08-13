@@ -6,7 +6,9 @@ import {
   getWordnik,
   getChuck,
   getQuote,
-  getWords
+  getWords,
+  setVowelsError,
+  clearData
 } from "../../actions/itemActions";
 
 class Dashboard extends Component {
@@ -14,7 +16,8 @@ class Dashboard extends Component {
     super();
     this.state = {
       word: "",
-      errors: {}
+      errors: null,
+      showWord: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -38,12 +41,14 @@ class Dashboard extends Component {
   }
 
   onSubmit(e) {
+    this.setState({ showWord: true });
     e.preventDefault();
 
     const { word } = this.state;
 
     const sendWord = word.toLowerCase();
     var letterArray = sendWord.replace(/[^A-Za-z]/g, "");
+
     if (
       !letterArray.includes("a") &&
       !letterArray.includes("e") &&
@@ -52,22 +57,16 @@ class Dashboard extends Component {
       !letterArray.includes("u") &&
       !letterArray.includes("y")
     ) {
-      this.setState({
-        errors: {
-          wovelsError:
-            "You can't possibly create words without vowels or at least without a 'y'! :D"
-        }
-      });
+      this.props.clearData();
+      this.props.setVowelsError();
     } else {
-      this.setState({
-        errors: {}
-      });
+      this.props.clearData();
       this.props.getWords(letterArray);
     }
   }
 
   render() {
-    const { word, errors } = this.state;
+    const { word, errors, showWord } = this.state;
     const { wordnik, chuck, quote, words, loading } = this.props.item;
 
     return (
@@ -134,26 +133,43 @@ class Dashboard extends Component {
                 </div>
                 <div className="col-md-3" />
               </div>
-
-              {errors === null || words ? (
+              {showWord ? (
                 <div>
-                  {!loading ? (
+                  {!loading || (errors && errors.error) ? (
                     <div>
-                      {words.length > 0 ? (
+                      {(words && words.length > 0) ||
+                      ((errors && errors.error) ||
+                        (errors && errors.vowelsError)) ? (
                         <div>
-                          {words.map(word => (
-                            <div
-                              className="container mt-3 border border-dark"
-                              key={word.word}
-                            >
-                              <h1 className="h4">"{word.word}"</h1>
-                              <h1 className="h5">-{word.definition}</h1>
+                          {words && words.length > 0 ? (
+                            <div>
+                              {words.map(word => (
+                                <div
+                                  className="container mt-3 border border-dark"
+                                  key={word.word}
+                                >
+                                  <h1 className="h4">"{word.word}"</h1>
+                                  <h1 className="h5">-{word.definition}</h1>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          ) : null}
+                          {errors && (
+                            <div className="container text-danger mt-4">
+                              {errors.error}
+                            </div>
+                          )}
+                          {errors && !errors.error && (
+                            <div className="container text-danger mt-4">
+                              {errors.vowelsError}
+                            </div>
+                          )}
                         </div>
                       ) : (
-                        <div className="container text-danger mt-4">
-                          You can't create words with the given characters!
+                        <div>
+                          <div className="container text-danger mt-4">
+                            You can't create words with the given characters!
+                          </div>
                         </div>
                       )}
                     </div>
@@ -161,25 +177,7 @@ class Dashboard extends Component {
                     <Spinner />
                   )}
                 </div>
-              ) : (
-                <div>
-                  {errors.error && (
-                    <div className="container text-danger mt-4">
-                      {errors.error}
-                    </div>
-                  )}
-                  {errors.wordError && (
-                    <div className="container text-danger mt-4">
-                      {errors.wordError}
-                    </div>
-                  )}
-                  {errors.wovelsError && (
-                    <div className="container text-danger mt-4">
-                      {errors.wovelsError}
-                    </div>
-                  )}
-                </div>
-              )}
+              ) : null}
             </form>
           </div>
         </div>
@@ -221,6 +219,8 @@ Dashboard.propTypes = {
   getWordnik: PropTypes.func.isRequired,
   getWords: PropTypes.func.isRequired,
   getChuck: PropTypes.func.isRequired,
+  clearData: PropTypes.func.isRequired,
+  setVowelsError: PropTypes.func.isRequired,
   getQuote: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
@@ -233,5 +233,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getWordnik, getChuck, getQuote, getWords }
+  { getWordnik, getChuck, getQuote, getWords, setVowelsError, clearData }
 )(Dashboard);
