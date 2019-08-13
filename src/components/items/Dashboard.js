@@ -109,8 +109,8 @@ class Dashboard extends Component {
         <div className="jumbotron jumbotron-fluid border border-secondary">
           <div className="container">
             <p className="h5 mb-4">
-              Enter characters to find out the words that can be created (No
-              need to seperate characters with a space or a comma).
+              Enter letters to find out the words that can be created (No need
+              to seperate characters with a space or a comma).
             </p>
             <form onSubmit={this.onSubmit}>
               <div className="form-row">
