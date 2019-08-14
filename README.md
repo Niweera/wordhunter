@@ -2,7 +2,7 @@
 [![HitCount](http://hits.dwyl.io/Niweera/wordhunter.svg)](http://hits.dwyl.io/Niweera/wordhunter)
 ![GitHub issues](https://img.shields.io/github/issues/Niweera/wordhunter)
 ![Website](https://img.shields.io/website/https/wordhunter.niweera.gq?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
-
+[![Build Status](https://travis-ci.com/Niweera/wordhunter.svg?branch=master)](https://travis-ci.com/Niweera/wordhunter)
 
 # WordHunter
 
@@ -12,9 +12,6 @@
 
 The following is the basic architecture of the WordHunter application. (The web application will use the WordHunter-api to get the results according to the letters that the user has given.)
 
-
-
-
 ![](https://raw.githubusercontent.com/Niweera/wordhunter-api/master/w.png)
 
 ### Example use case
@@ -22,6 +19,7 @@ The following is the basic architecture of the WordHunter application. (The web 
 User wants to find words which can be created from `a, s, d`
 
 The WordHunter service will provide the following results.
+
 1. sad - Feeling or showing sorrow; unhappy.
 2. ads - An advertisement.
 
@@ -33,7 +31,7 @@ The WordHunter service will provide the following results.
 
 Nipuna Weerasekara – [@Niweera](https://twitter.com/Niweera) – w.nipuna@gmail.com
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
 
 [https://github.com/Niweera/wordhunter](https://github.com/Niweera/wordhunter)
 
@@ -52,6 +50,7 @@ This repo is a part of `WordHunter` project.
 5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
+
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
@@ -62,4 +61,3 @@ This repo is a part of `WordHunter` project.
 ## Acknowledgement
 
 Without the gigantic help from this guy [koolify](https://github.com/koolify), the development of WordHunter would be impossible...
-
