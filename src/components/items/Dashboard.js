@@ -119,10 +119,11 @@ class Dashboard extends Component {
                   <input
                     type="text"
                     className="form-control mb-2"
-                    placeholder="Enter Characters"
+                    placeholder="Enter Letters"
                     name="word"
                     value={word}
                     onChange={this.onChange}
+                    autoFocus
                     required
                   />
                 </div>
