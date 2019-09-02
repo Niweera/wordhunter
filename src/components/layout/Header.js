@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark" style={navbarStyle}>
         <div className="container">
-          <a className="navbar-brand" href="./">
+          <Link style={headerStyle} className="navbar-brand" to="/">
             WordHunter
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,6 +25,7 @@ export default class Header extends Component {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <a
+                  style={headingStyle}
                   className="nav-link"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -34,12 +36,13 @@ export default class Header extends Component {
               </li>
               <li className="nav-item">
                 <a
+                  style={headingStyle}
                   className="nav-link"
                   rel="noopener noreferrer"
                   target="_blank"
                   href="https://blog.niweera.gq"
                 >
-                  Blog
+                  <i className="fab fa-wordpress"></i> Blog
                 </a>
               </li>
             </ul>
@@ -49,3 +52,17 @@ export default class Header extends Component {
     );
   }
 }
+
+const navbarStyle = {
+  backgroundColor: "#3b3a30",
+  textShadow: "0 1px 3px rgba(0,0,0,.5)",
+  color: "white"
+};
+
+const headingStyle = {
+  fontSize: "20px"
+};
+
+const headerStyle = {
+  fontSize: "24px"
+};

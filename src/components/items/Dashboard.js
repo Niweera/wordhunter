@@ -71,7 +71,14 @@ class Dashboard extends Component {
 
     return (
       <div className="container mt-4 mb-4">
-        <div className="jumbotron jumbotron-fluid  border border-secondary">
+        <div
+          className="jumbotron jumbotron-fluid"
+          style={{
+            backgroundColor: "#3b3a30",
+            textShadow: "0 1px 3px rgba(0,0,0,.5)",
+            color: "white"
+          }}
+        >
           <div className="container">
             <h1 className="h2">
               Welcome to WordHunter!
@@ -83,7 +90,7 @@ class Dashboard extends Component {
               <span className="h6 font-italic">
                 Courtesy of{" "}
                 <a
-                  style={{ color: "black" }}
+                  style={{ color: "white" }}
                   rel="noopener noreferrer"
                   target="_blank"
                   href="https://www.wordnik.com"
@@ -106,7 +113,14 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid border border-secondary">
+        <div
+          className="jumbotron jumbotron-fluid"
+          style={{
+            backgroundColor: "#3b3a30",
+            textShadow: "0 1px 3px rgba(0,0,0,.5)",
+            color: "white"
+          }}
+        >
           <div className="container">
             <p className="h5 mb-4">
               Enter letters to find out the words that can be created (No need
