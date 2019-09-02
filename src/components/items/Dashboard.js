@@ -128,8 +128,8 @@ class Dashboard extends Component {
             </p>
             <form onSubmit={this.onSubmit}>
               <div className="form-row">
-                <div className="col-md-3" />
-                <div className="col-md-3">
+                <div className="col-lg-3 col-md-3 col-sm-1 col-0" />
+                <div className="col-lg-3 col-md-3 col-sm-5 col-12">
                   <input
                     type="text"
                     className="form-control mb-2"
@@ -141,7 +141,7 @@ class Dashboard extends Component {
                     required
                   />
                 </div>
-                <div className="col-md-3 mb-2">
+                <div className="col-lg-3 col-md-3 col-sm-5 mb-2 col-12">
                   <button
                     type="submit"
                     id="specialButton"
@@ -150,7 +150,7 @@ class Dashboard extends Component {
                     Search
                   </button>
                 </div>
-                <div className="col-md-3" />
+                <div className="col-lg-3 col-md-3 col-sm-1 col-0" />
               </div>
               {showWord ? (
                 <div>
