@@ -1,13 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Footer extends Component {
   render() {
     return (
-      <nav className="navbar sticky-bottom navbar-expand-lg navbar-dark bg-dark">
+      <nav
+        className="navbar sticky-bottom navbar-expand-lg navbar-dark"
+        style={navbarStyle}
+      >
         <div className="container">
-          <a className="navbar-brand" href="./">
+          <Link style={headerStyle} className="navbar-brand" to="/">
             &copy; WordHunter 2019
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,7 +27,11 @@ export default class Footer extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="https://www.facebook.com/Niweera">
+                <a
+                  className="nav-link"
+                  style={headingStyle}
+                  href="https://www.facebook.com/Niweera"
+                >
                   <i
                     style={{ fontSize: "25px" }}
                     className="fab fa-facebook-square"
@@ -31,7 +39,11 @@ export default class Footer extends Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="https://twitter.com/Niweera">
+                <a
+                  className="nav-link"
+                  style={headingStyle}
+                  href="https://twitter.com/Niweera"
+                >
                   <i
                     style={{ fontSize: "25px" }}
                     className="fab fa-twitter-square"
@@ -53,3 +65,17 @@ export default class Footer extends Component {
     );
   }
 }
+
+const navbarStyle = {
+  backgroundColor: "#3b3a30",
+  textShadow: "0 1px 3px rgba(0,0,0,.5)",
+  color: "white"
+};
+
+const headingStyle = {
+  fontSize: "20px"
+};
+
+const headerStyle = {
+  fontSize: "24px"
+};

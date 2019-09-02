@@ -95,3 +95,12 @@ a:hover {
   color: #495057;
   font-weight: bold;
 }
+
+#specialButton {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+#specialButton:hover {
+  background-color: #e9ecef; /* Green */
+  color: black;
+}

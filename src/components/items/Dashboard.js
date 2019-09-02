@@ -142,7 +142,11 @@ class Dashboard extends Component {
                   />
                 </div>
                 <div className="col-md-3 mb-2">
-                  <button type="submit" className="btn btn-dark mb-2 btn-block">
+                  <button
+                    type="submit"
+                    id="specialButton"
+                    className="btn btn-secondary mb-2 btn-block"
+                  >
                     Search
                   </button>
                 </div>
@@ -197,7 +201,14 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid  border border-secondary">
+        <div
+          className="jumbotron jumbotron-fluid"
+          style={{
+            backgroundColor: "#3b3a30",
+            textShadow: "0 1px 3px rgba(0,0,0,.5)",
+            color: "white"
+          }}
+        >
           <div className="container">
             <h1 className="h4">Today's Inspiration</h1>
             <hr />
@@ -212,7 +223,14 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid  border border-secondary">
+        <div
+          className="jumbotron jumbotron-fluid"
+          style={{
+            backgroundColor: "#3b3a30",
+            textShadow: "0 1px 3px rgba(0,0,0,.5)",
+            color: "white"
+          }}
+        >
           <div className="container">
             <h1 className="h4">Chuck Norris Fun Fact!</h1>
             <hr />
