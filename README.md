@@ -6,7 +6,9 @@
 
 # WordHunter
 
-## WordHunter is now live on https://wordhunter.niweera.gq
+## WordHunter is now live on [WordHunter-V1](https://20200409t141418-dot-whunter.uc.r.appspot.com/)
+
+## WordHunter-V2 is now live on https://wordhunter.niweera.gq
 
 > WordHunter lets you to find the words for the letters you have when you are playing Scrabble.
 

@@ -10,7 +10,7 @@ export default class Footer extends Component {
       >
         <div className="container">
           <Link style={headerStyle} className="navbar-brand" to="/">
-            &copy; WordHunter 2019
+            &copy; WordHunter {new Date().getFullYear()}
           </Link>
           <button
             className="navbar-toggler"
@@ -69,13 +69,13 @@ export default class Footer extends Component {
 const navbarStyle = {
   backgroundColor: "#3b3a30",
   textShadow: "0 1px 3px rgba(0,0,0,.5)",
-  color: "white"
+  color: "white",
 };
 
 const headingStyle = {
-  fontSize: "20px"
+  fontSize: "20px",
 };
 
 const headerStyle = {
-  fontSize: "24px"
+  fontSize: "24px",
 };
