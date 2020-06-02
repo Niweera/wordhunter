@@ -39,7 +39,7 @@ Distributed under the MIT license. See `LICENSE` for more information.
 
 The back-end for this application is in [wordhunter-api](https://github.com/Niweera/wordhunter-api) repo.
 
-This repo is a part of `WordHunter` project.
+This repo is a part of [`WordHunter`](https://github.com/users/Niweera/projects/2) project.
 
 `WordHunter` uses [GoogleDict](https://dict.niweera.gq) Dictionary API service. Find its repo [here](https://github.com/Niweera/googledict).
 
