@@ -51,6 +51,7 @@ export const getWords = (word) => (dispatch) => {
 // Get Wordnik Word of The Day https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=5h1rb85kf77nom3iqnjybdjq54nsg3b848i5hejuxy4hqtw0w  https://dict.niweera.gq/hello
 export const getWordnik = () => (dispatch) => {
   dispatch(setItemLoading());
+  axios.get("https://wordhunter-api.herokuapp.com").catch();
   axios
     .get(
       `https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=5h1rb85kf77nom3iqnjybdjq54nsg3b848i5hejuxy4hqtw0w`
